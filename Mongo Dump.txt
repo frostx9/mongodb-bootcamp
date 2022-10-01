@@ -1,0 +1,7 @@
+// For Windows
+
+mongodump --host localhost --port 27017 -d shearer -o D:\Demp
+
+keey :
+-d ${database name}
+-o ${where to dump location}
