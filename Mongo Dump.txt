@@ -1,4 +1,6 @@
 // For Windows
+// Download Mongodb Tools and extract to C drive anywhere
+// Start cmd from bin folder
 
 mongodump --host localhost --port 27017 -d shearer -o D:\Demp
 

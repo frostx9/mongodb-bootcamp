@@ -1,0 +1,38 @@
+1. Download MongoDb comunity and install. All oprtion must be default
+
+2. Download Mongodb Shell. Extract The rar file.
+
+3. Rename the download foder to mongo-shell and copy/paste into C drive
+
+4. Go to C:\Program Files\MongoDB\Server\6.0\bin and copy the file location path
+
+6. Next go the Edit The System Environment Variable.
+
+7 Select Environment Variables tab
+
+8. Go the Sytem Variables
+
+9.Select Path
+
+10. Select Edit
+
+11. Select New
+
+12. paste "C:\Program Files\MongoDB\Server\6.0\bin" file location to the new variables
+
+12. Now copy Mongo-shell bin file location "C:\mongo-shell\bin" and paste to the new system variable path
+
+13.Select ok and close the Settings
+
+14. Create Db folder folder for Mongodb. Go the C drive. Create data folder. inside data folder create db folder. All name must in small
+
+15. To check the install scucesfull or not ..write mongod --version to comand prompt and it return install mongodb version
+
+16. To start the server write mongod in the comand prompt ...it will start automatically
+
+17. To check the mongoserver aumoatically running or not windows boot up, go the Services and select Mongodb Server. By dedfault it will be running automatically when
+mcahine start
+
+18. Write mongosh to the comand prompt to using mongo shell for Mongodb Server
+
+19. Next write show dbs to show many database have locally 
