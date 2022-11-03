@@ -1,0 +1,32 @@
+1. To Change Monogdb Port
+mongod --port 27108
+
+To Change other data or other Collection ... we use 'use salaryG'
+
+JSON(JavaScript Object Notation) 
+BSON(Binary JSON)
+
+MongoDB use BSON data type to store in database
+
+Custom ID 
+db.flight.insrtOne({_id : "TXL-01", "name": "FROST"})
+
+2. Delete One 
+db.flight.eleteOne({ "name": "FROST"})
+
+3. Update One
+db.flight.updateOne({
+  _id : "4546546545616"
+},{
+  $set:{
+    "name" : "FROSTX9"
+  }
+})
+
+4. Update Many
+db.flight.updateOne({},
+{
+  $set:{
+    "name" : "FROSTX9"
+  }
+})
