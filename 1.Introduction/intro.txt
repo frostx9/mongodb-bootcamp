@@ -1,0 +1,15 @@
+1. Connect Mongodb via shell = 
+Tpye 'mongosh' in terminal . Note : Without ' '
+
+2. To show database = 
+Tpye 'show dbs'
+
+3. To Create New Database =  
+Type 'use shop' ... shop is the name of new Database
+
+4. To Create New Collection =
+Type db.products.insrtOne({name : "Saumya"}) ... products is the Collection name
+
+5. To find Collection = 
+Type db.products.find() // Ans - [ { _id: ObjectId("63637c656c496a080e8fa03f"), name: 'Saumya' } ]
+use .pretty() for nice format.... db.products.find().pretty()...it is obsolute

@@ -1,7 +1,0 @@
-Connect Mongosb = mongosh  ... for windows
-
-To Create New Database =  { use shop } ... shop is the name of new Database
-
-To Create New Collection = {db.products.insrtOne({name : "Saumya"})} ... products is the Collection name
-
-To find Collection = {db.products.find()}
