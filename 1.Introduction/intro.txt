@@ -1,3 +1,6 @@
+Mongo name came from "Humongous"..mean lots
+It is a non-sql database
+
 1. Connect Mongodb via shell = 
 Tpye 'mongosh' in terminal . Note : Without ' '
 
