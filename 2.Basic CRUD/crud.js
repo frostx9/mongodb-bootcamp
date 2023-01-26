@@ -38,7 +38,8 @@ db.flight.update({ _id: "TXL-01" }, { delayed: true })  //It also work as update
 // but it will overwrite all value with 'delayed:true'
 
 // 6.Delete Many
-db.products.deleteMany({ marker: "toDelete" })
+db.products.deleteMany({}) // Deleta All Collection
+db.products.deleteMany({ marker: "toDelete" }) // Delete All Collection with marker : "toDelete"
 
 // 7.Insert Many
 db.products.insrtMany([{}, {}])
