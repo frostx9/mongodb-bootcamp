@@ -76,4 +76,32 @@ db.flightData.updateOne({ name: "Albert" }, { $set: { hobby: ["Painting", "Drivi
 
 db.flightData.findOne({ name: "Albert" }).hobby // It will Give Embadded Array data whih array name is hobby
 
-db.flightData.find({ hobby: "Albert" }) // in here 
+db.flightData.find({ hobby: "Albert" }) // in here it will give all data with hobby array that has element "Albert" propoerty
+
+db.flightData.find({ "status.descriptio": "on-time" }) // Embadaed object 
+
+
+// Assignment
+
+db.patients.insrtMany([{
+  firstNmae: "Tomy",
+  lastName: "Angelo",
+  age: "29",
+  history: [
+    {
+      disease: "Cold",
+      treatment: "Take Vapor"
+    }
+  ]
+},
+{
+  firstNmae: "Arthur",
+  lastName: "Morgan",
+  age: "35",
+  history: [
+    {
+      disease: "TB",
+      treatment: "Take Antibiotics"
+    }
+  ]
+}])
