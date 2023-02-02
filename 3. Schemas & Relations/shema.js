@@ -24,3 +24,62 @@
 db.stats() // This will show stattics Of Database
 
 // NumberInt() - This will reduce data size.
+
+
+//Validation
+db.createCollection("posts", {
+  validator: {
+    $jsonSchema: {
+      bsonType: 'object',  // Every document should be object
+      required: ['title', 'text', 'creator', 'comments'],  // This all time requaired
+      properties: {
+        title: {
+          bsonType: "string",
+          description: "Must Be A String"
+        },
+        comment: {
+          bsonType: "array",
+          description: "Must Be A String",
+          items: {
+            bsonType: 'object',
+            properties: {
+              text: 'string'
+            }
+          }
+        }
+      }
+    }
+  }
+})
+
+
+//bsonType = "string", "array", "objectId", "object"
+
+
+// Adminstarion Command for changing validation Action on previous document
+db.runCommand({
+  collMod: "posts",
+  validator: {
+    $jsonSchema: {
+      bsonType: 'object',  // Every document should be object
+      required: ['title', 'text', 'creator', 'comments'],  // This all time requaired
+      properties: {
+        title: {
+          bsonType: "string",
+          description: "Must Be A String"
+        },
+        comment: {
+          bsonType: "array",
+          description: "Must Be A String",
+          items: {
+            bsonType: 'object',
+            properties: {
+              text: 'string'
+            }
+          }
+        }
+      }
+    }
+  },
+  validtionAction: "warn"
+})
