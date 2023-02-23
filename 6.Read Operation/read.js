@@ -46,3 +46,12 @@ db.movies.find({ $nor: [{ runtimes: { $nin: [45, 35] } }, { "ratings.average": {
 //$and
 db.movies.find({ $and: [{ runtimes: { $nin: [45, 35] } }, { "ratings.average": { $gte: 6 } }] })
 
+//$not
+db.movies.find({ runtimes: { $not: { $eq: 60 } } })
+// It says runtime is not equal to 60
+
+//$ne - Not Eaual To
+db.movies.find({ runtimes: { $ne: 60 } })
+
+
+//Element Operator
