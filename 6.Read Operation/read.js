@@ -55,3 +55,19 @@ db.movies.find({ runtimes: { $ne: 60 } })
 
 
 //Element Operator
+
+//$exsist
+db.user.find({ age: { $exists: true, $gt: 60 } })
+// It says that find all document that have age field exsist and age value is greatr than 60
+
+db.user.find({ age: { $exists: true, $ne: null } })
+// age field exsists , age is not null
+
+//$type
+db.user.find({ age: { $type: "number" } })
+// It says that find all documents that age have number
+
+//Evaluation Operator
+
+//$regex
+
