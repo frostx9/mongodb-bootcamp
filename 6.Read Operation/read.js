@@ -67,7 +67,26 @@ db.user.find({ age: { $exists: true, $ne: null } })
 db.user.find({ age: { $type: "number" } })
 // It says that find all documents that age have number
 
+
 //Evaluation Operator
 
 //$regex
 
+//$expr - Exprassion
+db.sales.find({ $expr: { $gt: ['$value', '$target'] } })
+//It says that find all documents where value is greater than target
+// This is how we write expreassions in mongo query
+
+//$cond - Condition
+//$subtract - Subtract
+
+await Sales.find({ $expr: { $gt: [{ $cond: { if: { $gte: ["$sales", 280] }, then: { $subtract: ["volume", 50] }, else: "$volume" } }, "target"] } })
+/**
+ * it says that find all document that
+ *
+ * first condtion - all volume must be above 280 (if: { $gte: ["$volume", 280] }), and then target must be less than 230 ( $subtract: ["volume", 30]) => 280 - 50 = 30
+ *
+ * second condtion - if condtion is not much above then retune other document (else: "$volume")
+ */
+
+// Querying Arrauys
