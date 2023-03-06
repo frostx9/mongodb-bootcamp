@@ -119,4 +119,6 @@ db.movies.find({ genre: { $all: ["thriller", "action"] } })
 
 db.user.find({ hobbies: { $elemMatch: { title: "Sports", frequncy: { $gte: 3 } } } })
 
+// Skip and Limit
+
 
