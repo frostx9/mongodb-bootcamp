@@ -90,3 +90,33 @@ await Sales.find({ $expr: { $gt: [{ $cond: { if: { $gte: ["$sales", 280] }, then
  */
 
 // Querying Arrauys
+
+// For Embaded Document
+/**
+ * name:[{
+ *  first: "Amit"
+ *  last : "Sen"
+ * },{
+ *  first: "Suman"
+ *  last : "Deb"
+ * }]
+ * 
+ */
+
+await user.findOne({ "name.first": "Amit" }).exec()
+
+
+// $size
+// Find User Who have 3 hobies... Hobbies array content 3 value
+db.user.find({ hobbies: { $size: 3 } })   // --> Find user , which hobbies array exact size is 3
+
+//$all
+// When dont care about order
+db.movies.find({ genre: { $all: ["thriller", "action"] } })
+
+//$elemMatch
+// Find user which title is sports but frequncy is 2
+
+db.user.find({ hobbies: { $elemMatch: { title: "Sports", frequncy: { $gte: 3 } } } })
+
+
