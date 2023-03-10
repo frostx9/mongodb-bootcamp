@@ -122,8 +122,43 @@ db.user.updateOne({
   upsert: true
 })
 /**
- * so bascially upsert do is - 
+ * so bascially upsert do is -
  * supose we want to update a Documet that name is Manual and set age to 45.
  * if there is no document by mistake in the database , upert:true -> this comand make a new doucment in the the database
  * by default is false
  */
+
+// Work With Array
+
+// Update Specific Array
+
+db.user.updateMany({ hobbies: { $elemMatch: { title: "Sports", frequncy: { $gte: 3 } } } }, { $set: { "hobbies.$.highFrequncy": true } })
+
+/**
+ * Explain - hobbies.$ -- it tells that select those hobbies array which match by $elemmatch condtion and
+ * "hobbies.$.highFrequncy": true -- full statemant tells that in those hobbies array add highFrequncy as a true
+ *
+ * hobbies :[
+ *    {
+ *      title: "Sports"
+ *      frequncy : 3
+ *      highFrequncy : true
+ *    },{
+ *      title: "Cooking"
+ *      frequncy : 1
+ *    }
+ * ]
+ *
+ */
+
+// Update Multipale Array Element
+
+/**
+ * "hobbies.$.highFrequncy": true - in this comand there is a problem. It update only matching first object in array
+ * so overcome this we use....  .$[]. -- It tells select all
+ */
+
+db.user.updateMany({ totalAge: { $gte: 30 } }, { $inc: { "hobbies.$[].frequncy": -1 } })
+
+
+// Find and Update Specific Fileds

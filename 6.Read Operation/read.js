@@ -115,9 +115,23 @@ db.user.find({ hobbies: { $size: 3 } })   // --> Find user , which hobbies array
 db.movies.find({ genre: { $all: ["thriller", "action"] } })
 
 //$elemMatch
-// Find user which title is sports but frequncy is 2
+// Find user which hoobies title is sports but frequncy is greatet than 3. It work like a $and operator
 
 db.user.find({ hobbies: { $elemMatch: { title: "Sports", frequncy: { $gte: 3 } } } })
+
+/**
+ * in here hobbie is a array
+ *
+ * hobbies :[
+ *    {
+ *      title: "Sports"
+ *      frequncy : 3
+ *    },{
+ *      title: "Cooking"
+ *      frequncy : 3
+ *    }
+ * ]
+ */
 
 // Skip and Limit
 
