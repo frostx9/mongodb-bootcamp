@@ -128,6 +128,8 @@ db.user.updateOne({
  * by default is false
  */
 
+
+
 // Work With Array
 
 // Update Specific Array
@@ -162,3 +164,45 @@ db.user.updateMany({ totalAge: { $gte: 30 } }, { $inc: { "hobbies.$[].frequncy":
 
 
 // Find and Update Specific Fileds
+
+db.user.updateMany({ "age": { $gte: 40 } }, { $set: { "hobbies.$[el].goodFrequncy": true } }, { arrayFilters: [{ "el.frequncy": { $gt: 2 } }] })
+/**
+ * Explain -  First we flter user those age is greate tahan 40, then we access all hoobies array aobject by ,$[]
+ * . In here el represent every element. then we filter the array by freqncy which value is greateter than 2 and goodfrequncy is true
+ */
+
+// Adding Element in Array
+// $push
+
+db.users.updateOne({
+  name: "Maria"
+}, {
+  $push: {
+    hobbies: []
+  },
+  $sort: {
+    frequncy: -1   // We can sort data of array before added in data-base
+  }
+})
+
+//Removeing Element From Array
+//$pull
+
+db.user.updateOne({
+  name: "Maria"
+}, {
+  $pull: {
+    hobbies: { title: "Good Wine" }  // For Specific
+  }
+})
+
+db.user.updateOne({
+  name: "Chris"
+}, {
+  $pop: {
+    hobbies: 1,  // Remove last Element form hobbies array
+    hobbies: -1  // Remove First Element form hobbies array
+  }
+})
+
+//$addToSet  - It work like a $push , but it only push unique value in array
