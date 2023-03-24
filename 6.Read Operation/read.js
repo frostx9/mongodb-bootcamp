@@ -45,6 +45,23 @@ db.movies.find({ $nor: [{ runtimes: { $nin: [45, 35] } }, { "ratings.average": {
 
 //$and
 db.movies.find({ $and: [{ runtimes: { $nin: [45, 35] } }, { "ratings.average": { $gte: 6 } }] })
+/**
+ * $and + $or - together
+ */
+
+db.things.find({
+  $and: [
+    {
+      $or: [
+        { "first_name": "john" },
+        { "last_name": "john" }
+      ]
+    },
+    {
+      "Phone": "12345678"
+    }
+  ]
+})
 
 //$not
 db.movies.find({ runtimes: { $not: { $eq: 60 } } })
